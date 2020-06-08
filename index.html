@@ -15,7 +15,18 @@
     </ul>
   </form>
 <script>
+
 const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+// create an empty array to put our returned data into
+// use the spread operator to push the data into our array
+const cities = [];
+
+fetch(endpoint)
+  .then(resp => resp.json())
+  .then(data => cities.push(...data))
+
+
 
 </script>
 </body>
