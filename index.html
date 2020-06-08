@@ -26,6 +26,15 @@ fetch(endpoint)
   .then(resp => resp.json())
   .then(data => cities.push(...data))
 
+// filter through the cities to find a match
+function findMatches(wordToMatch, cities) {
+  return cities.filter(place => {
+    // here we need to figure out if the city or state matches what was searched
+    // The RegExp object is used for matching text with a pattern.
+    const regex = new RegExp(wordToMatch, 'gi')
+    return place.city.match(regex) || place.state.match(regex)
+  })
+} 
 
 
 </script>
